@@ -26,10 +26,10 @@ const list = [{
     console.log(typeof a, typeof b);
   `,
   answers: [
-    {answer: '"undefined", "number"', isTrue: true},
-    {answer: '"number", "number"'},
-    {answer: '"number", "undefined"'},
-    {answer: '"undefined", "undefined"'}
+    {answer: 'undefined, number', isTrue: true},
+    {answer: 'number, number'},
+    {answer: 'number, undefined'},
+    {answer: 'undefined, undefined'}
   ]
 }, {
   tags: ['es5'],
@@ -73,9 +73,9 @@ const list = [{
     console.log(foo1(), foo2());
   `,
   answers: [
-    {answer: 'Object {bar: "hello"}, undefined', isTrue: true},
-    {answer: 'Object {bar: "hello"}, Object {bar: "hello"}'},
-    {answer: 'undefined, Object {bar: "hello"}'},
+    {answer: '{bar: "hello"}, undefined', isTrue: true},
+    {answer: '{bar: "hello"}, {bar: "hello"}'},
+    {answer: 'undefined, {bar: "hello"}'},
     {answer: 'undefined, undefined'}
   ]
 }, {
@@ -137,10 +137,10 @@ const list = [{
     console.log(+'1' + '1' + '2');
   `,
   answers: [
-    {answer: '"122", "32", "02", "112"', isTrue: true},
+    {answer: '122, 32, 02, 112', isTrue: true},
     {answer: '5, 32, 2, 4'},
-    {answer: '"122", "122", "112", "112"'},
-    {answer: '"32", "32", "02", "112"'}
+    {answer: '122, 122, 112, 112'},
+    {answer: '32, 32, 02, 112'}
   ]
 }, {
   tags: ['es5'],
@@ -189,9 +189,9 @@ const list = [{
     console.log(a[b]);
   `,
   answers: [
-    {answer: 13, isTrue: true},
-    {answer: undefined},
-    {answer: 7},
+    {answer: '13', isTrue: true},
+    {answer: 'undefined'},
+    {answer: '7'},
     {answer: 'Error'}
   ]
 }, {
@@ -222,8 +222,8 @@ const list = [{
     console.log(b);
   `,
   answers: [
-    {answer: 'Object {a: 13}', isTrue: true},
-    {answer: 'Object {b: 7}'},
+    {answer: '{a: 13}', isTrue: true},
+    {answer: '{b: 7}'},
     {answer: 'undefined'},
     {answer: 'Error'}
   ]
@@ -242,10 +242,10 @@ const list = [{
     console.log(a, b);
   `,
   answers: [
-    {answer: '7, Object {a: 13}', isTrue: true},
-    {answer: '13, Object {a: 13}'},
-    {answer: '7, Object {a: 7}'},
-    {answer: '13, Object {a: 7}'}
+    {answer: '7, {a: 13}', isTrue: true},
+    {answer: '13, {a: 13}'},
+    {answer: '7, {a: 7}'},
+    {answer: '13, {a: 7}'}
   ]
 }, {
   tags: ['es5'],
@@ -278,10 +278,10 @@ const list = [{
     console.log(typeof undefined);
   `,
   answers: [
-    {answer: '"object", "object", "object", "undefined"', isTrue: true},
-    {answer: '"object", "object", "array", "undefined"'},
-    {answer: '"null", "object", "object", "undefined"'},
-    {answer: '"object", "object", "object", "string"'}
+    {answer: 'object, object, object, undefined', isTrue: true},
+    {answer: 'object, object, array, undefined'},
+    {answer: 'null, object, object, undefined'},
+    {answer: 'object, object, object, string'}
   ]
 }, {
   tags: ['es6'],
@@ -299,10 +299,10 @@ const list = [{
     person.printName();
   `,
   answers: [
-    {answer: undefined, isTrue: true},
+    {answer: 'undefined', isTrue: true},
     {answer: 'Error'},
     {answer: 'Mike'},
-    {answer: null}
+    {answer: 'null'}
   ]
 }, {
   tags: ['es5'],
@@ -319,9 +319,9 @@ const list = [{
   setTimeout(person.printAge, 1000);
   `,
   answers: [
-    {answer: undefined, isTrue: true},
-    {answer: 27},
-    {answer: null},
+    {answer: 'undefined', isTrue: true},
+    {answer: '27'},
+    {answer: 'null'},
     {answer: 'Error'}
   ]
 }, {
@@ -362,10 +362,10 @@ const list = [{
   title: 'How many data types are there in JS-ES5?',
   code: ``,
   answers: [
-    {answer: 6, isTrue: true},
-    {answer: 7},
-    {answer: 5},
-    {answer: 10},
+    {answer: '6', isTrue: true},
+    {answer: '7'},
+    {answer: '5'},
+    {answer: '10'}
   ]
 }, {
   tags: ['es6'],
@@ -386,9 +386,9 @@ const list = [{
   `,
   answers: [
     {answer: 'Error', isTrue: true},
-    {answer: 30},
-    {answer: 27},
-    {answer: undefined}
+    {answer: '30'},
+    {answer: '27'},
+    {answer: 'undefined'}
   ]
 }, {
   tags: ['es6'],
@@ -401,9 +401,9 @@ const list = [{
     let bar = 13;
   `,
   answers: [
-    {answer: '"undefined", Error', isTrue: true},
-    {answer: '"number", "number"'},
-    {answer: '"undefined", "undefined"'},
+    {answer: 'undefined, Error', isTrue: true},
+    {answer: 'number, number'},
+    {answer: 'undefined, undefined'},
     {answer: 'Error, Error'}
   ]
 }, {
@@ -431,23 +431,21 @@ const list = [{
     {answer: '5, 4, 3, 2, 2, 2'}
   ]
 }, {
-  tags: ['es5'],
+  tags: ['es6'],
   title: 'What will the following code output to the console?',
   code: `
-    var date = "Hello!";
+    let RegExp = '7';
+    console.log(typeof window.RegExp);
+    var Date = '13';    
     console.log(typeof window.Date);
-    
-    var Date = function() {
-      return date;
-    };
-    
-    console.log(typeof Date());
+    const Array = '77';
+    console.log(typeof window.Array);
   `,
   answers: [
-    {answer: '"function", "string"', isTrue: true},
-    {answer: '"function", "function"'},
-    {answer: '"string", "string"'},
-    {answer: '"string", "function"'}
+    {answer: 'function, string, function', isTrue: true},
+    {answer: 'function, function, function'},
+    {answer: 'string, string, string'},
+    {answer: 'string, function, string'}
   ]
 }, {
   tags: ['es6'],
@@ -713,7 +711,45 @@ const list = [{
   ]
 }, {
   tags: ['es6'],
-  title: 'What will be the output of the following code?',
+  title: 'What will the following code output to the console?',
+  code: `
+    const person = {
+      name: 'Mike',
+      age: 30
+    };
+
+    let name = 'Oleg';
+    let age = 27;
+
+    {name, age} = person;
+
+    console.log(name, age);
+  `,
+  answers: [
+    {answer: 'Error', isTrue: true},
+    {answer: 'Mike, 30'},
+    {answer: 'Oleg, 27'},
+    {answer: 'undefined, undefined'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the code below output to the console?',
+  code: `
+    function printPerson({name = 'Mike', age = 27}) {
+      console.log(name, age);
+    }
+
+    printPerson();
+  `,
+  answers: [
+    {answer: 'Error', isTrue: true},
+    {answer: 'Mike, 27'},
+    {answer: 'undefined, undefined'},
+    {answer: 'null, null'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code return?',
   code: `
     (function(x, f = () => x) {
       var x;
@@ -724,9 +760,220 @@ const list = [{
   `,
   answers: [
     {answer: '[2, 1, 1]', isTrue: true},
-    {answer: '[1, 1, 1,]'},
-    {answer: '[undefined, undefined, 1], '},
-    {answer: '[undefined, 2, undefined]'}
+    {answer: '[1, 1, 1]'},
+    {answer: '[2, undefined, 1]'},
+    {answer: '[2, 1, undefined]'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code output to the console?',
+  code: `
+    const person = (name) => {name: name}
+
+    const p = person('Mike');
+    console.log(p.name);
+  `,
+  answers: [
+    {answer: 'Error', isTrue: true},
+    {answer: 'Mike'},
+    {answer: 'undefined'},
+    {answer: 'null'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code output to the console?',
+  code: `
+    let arr = [];
+    for (let { x = 2, y } of [{ x: 1 }, 2, { y }]) { 
+      arr.push(x, y);
+    }
+
+    console.log(arr);
+  `,
+  answers: [
+    {answer: 'Error', isTrue: true},
+    {answer: '[{x: 1}, 2, { y }, undefined]'},
+    {answer: '[1, undefined, 2, undefined, 2, undefined]'},
+    {answer: '[1, undefined, undefined, undefined, 2, undefined]'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code output to the console?',
+  code: `
+    console.log(typeof \`${{Object}}\`.prototype);
+  `,
+  answers: [
+    {answer: 'undefined', isTrue: true},
+    {answer: 'object'},
+    {answer: 'function'},
+    {answer: 'Error'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code return?',
+  code: `
+    (function() {
+      let f = this ? class g { } : class h { };
+      return [
+        typeof f,
+        typeof h
+      ];
+    })();
+  `,
+  answers: [
+    {answer: '["function", "undefined"]', isTrue: true},
+    {answer: '["object", "undefined"]'},
+    {answer: '["undefined", "object"]'},
+    {answer: '["undefined", "function"]'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code return?',
+  code: `
+    (function() {
+      if(false) {
+        let f = { g() => 1 };
+      }
+      return typeof f;
+    })()
+  `,
+  answers: [
+    {answer: 'Error', isTrue: true},
+    {answer: 'undefined'},
+    {answer: 'function'},
+    {answer: 'object'}
+  ]
+}, {
+  tags: ['es6'],
+  title: 'What will the following code return?',
+  code: `
+    (function() {
+      return [
+        (() => this.x).bind({ x: 'inner' })(),
+        (() => this.x)()
+      ]
+    }).call({ x: 'outer' });
+  `,
+  answers: [
+    {answer: '["outer", "outer"]', isTrue: true},
+    {answer: '["inner", "outer"'},
+    {answer: '[undefined, "outer"]'},
+    {answer: 'Error'}
+  ]
+}, {
+  tags: ['es5'],
+  title: 'What will the following code output to the console?',
+  code: `
+    var output = (function(x) {
+      delete x;
+      return x;
+    })(0);
+  
+    console.log(output);
+  `,
+  answers: [
+    {answer: '0', isTrue: true},
+    {answer: 'undefined'},
+    {answer: 'null'},
+    {answer: 'Error'}
+  ]
+}, {
+  tags: ['es5'],
+  title: 'What will the following code output to the console?',
+  code: `
+    var Person = {
+      name: 'Jack'
+    }
+
+    var person = Object.create(Person);
+
+    delete person.name;
+
+    console.log(person.name);
+  `,
+  answers: [
+    {answer: 'Jack', isTrue: true},
+    {answer: 'undefined'},
+    {answer: 'null'},
+    {answer: 'Error'}
+  ]
+}, {
+  tags: ['es5'],
+  title: 'What will the following code output to the console?',
+  code: `
+    var foo = function bar() { return 12; };
+
+    console.log(typeof bar()); 
+  `,
+  answers: [
+    {answer: 'Error', isTrue: true},
+    {answer: 'function'},
+    {answer: 'number'},
+    {answer: 'undefined'}
+  ]
+}, {
+  tags: ['es5'],
+  title: 'What will the following code output to the console?',
+  code: `  
+    var salary = "1000$";
+
+    (function () {
+      console.log(salary);
+      var salary = "5000$";
+      console.log(salary);
+    })();
+  `,
+  answers: [
+    {answer: 'undefined, 5000$', isTrue: true},
+    {answer: '1000$, 5000$'},
+    {answer: '5000$, 5000$'},
+    {answer: 'Error'}
+  ]
+}, {
+  tags: ['es5'],
+  title: `
+    Which statement(s) is/are true?
+
+    1. The closure has access to variables declared in their own scope.
+    2. The closure has access to variables declared in a parent function scope.
+    3. The closure has access to variables declared in the global namespace.
+  `,
+  code: ``,
+  answers: [
+    {answer: '1, 2, 3', isTrue: true},
+    {answer: '1, 2'},
+    {answer: '2'},
+    {answer: '1, 3'}
+  ]
+}, {
+  tags: ['es5'],
+  title: 'What will the following code output to the console?',
+  code: `
+    var y = 1;
+
+    if(function f() { }) {
+      y += typeof f;
+    }
+
+    console.log(y);
+  `,
+  answers: [
+    {answer: '1undefined', isTrue: true},
+    {answer: '1'},
+    {answer: '1function'},
+    {answer: 'Error'}
+  ]
+}, {
+  tags: ['es5'],
+  title: 'What will the following code output to the console?',
+  code: `
+    console.log(0.1 + 0.2 == 0.3);
+  `,
+  answers: [
+    {answer: 'false', isTrue: true},
+    {answer: 'true'},
+    {answer: 'undefined'},
+    {answer: 'Error'}
   ]
 }];
 

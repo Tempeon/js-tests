@@ -236,14 +236,12 @@
    ``` 
 25) What will the following code output to the console?
 ```javascript 
-    var date = "Hello!";
+    let RegExp = '7';
+    console.log(typeof window.RegExp);
+    var Date = '13';    
     console.log(typeof window.Date);
-    
-    var Date = function() {
-      return date;
-    };
-    
-    console.log(typeof Date());
+    const Array = '77';
+    console.log(typeof window.Array);
    ``` 
 26) Consider the following code. What will be printed on the console?
 ```javascript 
@@ -408,7 +406,29 @@
     const add = (x) => (y) => x + y;
     const divide = (x) => (y) => y * y;
    ``` 
-38) What will be the output of the following code?
+38) What will the following code output to the console?
+```javascript 
+    const person = {
+      name: 'Mike',
+      age: 30
+    };
+
+    let name = 'Oleg';
+    let age = 27;
+
+    {name, age} = person;
+
+    console.log(name, age);
+   ``` 
+39) What will the code below output to the console?
+```javascript 
+    function printPerson({name = 'Mike', age = 27}) {
+      console.log(name, age);
+    }
+
+    printPerson();
+   ``` 
+40) What will the following code return?
 ```javascript 
     (function(x, f = () => x) {
       var x;
@@ -416,4 +436,106 @@
       x = 2;
       return [x, y, f()];
     })(1)
+   ``` 
+41) What will the following code output to the console?
+```javascript 
+    const person = (name) => {name: name}
+
+    const p = person('Mike');
+    console.log(p.name);
+   ``` 
+42) What will the following code output to the console?
+```javascript 
+    let arr = [];
+    for (let { x = 2, y } of [{ x: 1 }, 2, { y }]) { 
+      arr.push(x, y);
+    }
+
+    console.log(arr);
+   ``` 
+43) What will the following code output to the console?
+```javascript 
+    console.log(typeof `[object Object]`.prototype);
+   ``` 
+44) What will the following code return?
+```javascript 
+    (function() {
+      let f = this ? class g { } : class h { };
+      return [
+        typeof f,
+        typeof h
+      ];
+    })();
+   ``` 
+45) What will the following code return?
+```javascript 
+    (function() {
+      if(false) {
+        let f = { g() => 1 };
+      }
+      return typeof f;
+    })()
+   ``` 
+46) What will the following code return?
+```javascript 
+    (function() {
+      return [
+        (() => this.x).bind({ x: 'inner' })(),
+        (() => this.x)()
+      ]
+    }).call({ x: 'outer' });
+   ``` 
+47) What will the following code output to the console?
+```javascript 
+    var output = (function(x) {
+      delete x;
+      return x;
+    })(0);
+  
+    console.log(output);
+   ``` 
+48) What will the following code output to the console?
+```javascript 
+    var Person = {
+      name: 'Jack'
+    }
+
+    var person = Object.create(Person);
+
+    delete person.name;
+
+    console.log(person.name);
+   ``` 
+49) What will the following code output to the console?
+```javascript 
+    var foo = function bar() { return 12; };
+
+    console.log(typeof bar()); 
+   ``` 
+50) What will the following code output to the console?
+```javascript   
+    var salary = "1000$";
+
+    (function () {
+      console.log(salary);
+      var salary = "5000$";
+      console.log(salary);
+    })();
+   ``` 
+51) 
+    Which statement(s) is/are true?
+
+    1. The closure has access to variables declared in their own scope.
+    2. The closure has access to variables declared in a parent function scope.
+    3. The closure has access to variables declared in the global namespace.
+  
+52) What will the following code output to the console?
+```javascript 
+    var y = 1;
+
+    if(function f() { }) {
+      y += typeof f;
+    }
+
+    console.log(y);
    ``` 
