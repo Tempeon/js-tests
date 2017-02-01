@@ -1,3 +1,76 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /**
  @tags [es5, es6, typescript, ect.]
  */
@@ -978,4 +1051,96 @@ const list = [{
 }];
 
 //module.exports = list;
-export default list;
+/* harmony default export */ __webpack_exports__["a"] = list;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__questions__ = __webpack_require__(0);
+
+ 
+var mass_questions = [1,2,3,4,5,6,7,8,9,10]     //static
+var mass_rezult = []
+/*
+ add questions and answer random
+*/
+
+const root = document.getElementById("root");
+
+/*function random (){
+
+}*/
+
+const el = (type, props) => {
+  const element =   document.createElement(type);
+  if(Array.isArray(props.body)){
+      props.body.forEach(e => element.appendChild(e))
+  }
+  else if(props.body instanceof HTMLElement){
+      element.appendChild(props.body)
+  }
+  delete props.body;
+
+  Object.assign(element,props)
+  return element;
+}
+
+const start_button = el ("input",{type: 'button',id: 'buttons', value: "Start", onclick: () =>{test();} })
+root.appendChild(start_button);
+var str = true
+const test = ( i = 0) =>{
+    if(str){
+    root.removeChild(start_button)
+    str = false
+    }
+    if(i==10){
+        var rezult = 0;
+        for(var i = 0; i<10;i++){
+            if(mass_rezult[i]==true)
+                rezult++
+        }
+       const div =  el('div',{
+            body: el('label', { innerHTML: "Ваш рузультат : "+ rezult + " из 10"})
+        })
+        root.appendChild(div)
+         console.log("Правильных ответов: "+rezult)
+    }else{
+    const div = el ('div', {
+    body:[
+        el('div',{
+            body: el('label', { innerHTML: __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].title}),
+        }),
+    el('label',{body: el('label', { innerHTML: __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].code})}),
+    el("br",{}), 
+    el ("input",{type: 'radio', id: "red", name: "radio", onclick: ()=>{mass_rezult[i] = __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[0].isTrue}}),
+    el('label',{body: el('label', { innerHTML: __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[0].answer})}),
+    el("br",{}),  
+    el ("input",{type: 'radio', name: "radio", onclick: ()=>{mass_rezult[i] = __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[1].isTrue}}),
+    el('label',{body: el('label', { innerHTML: __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[1].answer})}),
+    el("br",{}),
+    el ("input",{type: 'radio', name: "radio", onclick: ()=>{mass_rezult[i] = __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[2].isTrue}}),
+    el('label',{body: el('label', { innerHTML: __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[2].answer})}),
+    el("br",{}),
+    el ("input",{type: 'radio', name: "radio", onclick: ()=>{mass_rezult[i] = __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[3].isTrue}}),
+    el('label',{body: el('label', { innerHTML: __WEBPACK_IMPORTED_MODULE_0__questions__["a" /* default */][i].answers[3].answer})}),
+    el("br",{}),
+    el ("input",{type: 'button',id: 'buttons', value: "next", onclick: () =>{root.removeChild(div); test(++i)} }) 
+    ]
+});
+
+//const input = el ("input",{type: 'radio'});
+//div.appendChild(input);
+root.appendChild(div)
+        
+console.log(mass_rezult)
+    }
+}
+//root.innerHTML = questions[0].title;
+//questions[0].answers[0].answer
+
+/***/ })
+/******/ ]);
